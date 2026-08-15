@@ -1,0 +1,38 @@
+ytd-ad-slot-renderer,
+ytd-banner-promo-renderer,
+ytd-display-ad-renderer,
+ytd-promoted-sparkles-web-renderer,
+ytd-promoted-sparkles-text-search-renderer,
+ytd-in-feed-ad-layout-renderer,
+ytd-action-companion-ad-renderer,
+ytd-promoted-video-renderer,
+ytd-compact-promoted-video-renderer,
+ytd-player-legacy-desktop-watch-ads-renderer,
+ytd-rich-item-renderer:has(ytd-ad-slot-renderer),
+ytd-reel-video-renderer:has(ytd-ad-slot-renderer),
+ytd-search-pyv-renderer,
+ytd-ad-slot-renderer,
+#masthead-ad,
+#player-ads,
+#offer-module,
+.masthead-ad-control,
+ytd-mealbar-promo-renderer,
+ytm-promoted-sparkles-web-renderer,
+ytm-companion-ad-renderer,
+ytm-promoted-sparkles-text-search-renderer,
+.ytp-ad-overlay-container,
+.ytp-ad-text-overlay,
+.ytp-ad-action-interstitial,
+.ytp-ad-image-overlay,
+.ytp-ad-overlay-slot,
+.ytp-ad-message-container,
+tp-yt-paper-dialog:has(ytd-enforcement-message-view-model),
+ytd-enforcement-message-view-model,
+ytd-popup-container tp-yt-paper-dialog:has(.ytd-enforcement-message-view-model) {
+  display: none !important;
+  visibility: hidden !important;
+  height: 0 !important;
+  min-height: 0 !important;
+  max-height: 0 !important;
+  overflow: hidden !important;
+}

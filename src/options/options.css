@@ -1,0 +1,94 @@
+:root {
+  color-scheme: dark;
+  --bg: #0e141b;
+  --card: #17202a;
+  --text: #f4f7fb;
+  --muted: #93a1b3;
+  --accent: #20c997;
+  --line: rgba(255, 255, 255, 0.08);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  font: 15px/1.5 "Segoe UI", system-ui, sans-serif;
+  color: var(--text);
+  background:
+    radial-gradient(circle at top right, rgba(32, 201, 151, 0.12), transparent 28%),
+    var(--bg);
+}
+
+main {
+  max-width: 720px;
+  margin: 0 auto;
+  padding: 40px 20px 64px;
+}
+
+h1,
+h2,
+p {
+  margin: 0 0 8px;
+}
+
+.lede,
+section p {
+  color: var(--muted);
+}
+
+.check {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: 10px;
+}
+
+section {
+  margin-top: 24px;
+  padding: 18px;
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: 14px;
+}
+
+textarea {
+  width: 100%;
+  margin-top: 10px;
+  padding: 12px;
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  background: #101820;
+  color: var(--text);
+  font: 13px/1.45 ui-monospace, Consolas, monospace;
+  resize: vertical;
+}
+
+.actions {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-top: 20px;
+}
+
+button {
+  border: 0;
+  border-radius: 10px;
+  padding: 10px 16px;
+  background: var(--accent);
+  color: #06281e;
+  font-weight: 650;
+  cursor: pointer;
+}
+
+button.ghost {
+  background: transparent;
+  color: var(--muted);
+  border: 1px solid var(--line);
+}
+
+#save-status {
+  color: var(--accent);
+}

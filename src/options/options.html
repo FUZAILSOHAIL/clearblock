@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>ClearBlock settings</title>
+    <link rel="stylesheet" href="options.css" />
+  </head>
+  <body>
+    <main>
+      <h1>ClearBlock settings</h1>
+      <p class="lede">Full EasyList, EasyPrivacy, and annoyance blocking, plus YouTube ad skipping.</p>
+
+      <section>
+        <h2>Filter lists</h2>
+        <p>Turn individual lists off if a site needs them.</p>
+        <label class="check"><input id="list-ads" type="checkbox" checked /> Ads (EasyList)</label>
+        <label class="check"><input id="list-trackers" type="checkbox" checked /> Trackers (EasyPrivacy)</label>
+        <label class="check"><input id="list-annoyances" type="checkbox" checked /> Cookie banners and annoyances</label>
+        <label class="check"><input id="list-youtube" type="checkbox" checked /> YouTube ads</label>
+      </section>
+
+      <section>
+        <h2>Custom block list</h2>
+        <p>One domain per line, for example <code>ads.example.com</code></p>
+        <textarea id="block-list" rows="8" placeholder="tracker.example.com"></textarea>
+      </section>
+
+      <section>
+        <h2>Allow list</h2>
+        <p>These domains are never blocked, even if they appear in the ad lists.</p>
+        <textarea id="allow-list" rows="6" placeholder="example.com"></textarea>
+      </section>
+
+      <section>
+        <h2>Paused sites</h2>
+        <p>Sites where you turned ClearBlock off from the popup.</p>
+        <textarea id="paused-list" rows="6"></textarea>
+      </section>
+
+      <div class="actions">
+        <button id="save-btn" type="button">Save lists</button>
+        <button id="reset-btn" class="ghost" type="button">Reset stats</button>
+        <span id="save-status"></span>
+      </div>
+    </main>
+    <script src="options.js"></script>
+  </body>
+</html>

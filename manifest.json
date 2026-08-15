@@ -1,0 +1,90 @@
+{
+  "manifest_version": 3,
+  "name": "ClearBlock",
+  "version": "2.0.1",
+  "description": "Full ad, tracker, annoyance, and YouTube ad blocker for Chrome and Edge.",
+  "minimum_chrome_version": "121",
+  "permissions": [
+    "declarativeNetRequest",
+    "declarativeNetRequestWithHostAccess",
+    "declarativeNetRequestFeedback",
+    "storage",
+    "tabs"
+  ],
+  "host_permissions": ["<all_urls>"],
+  "background": {
+    "service_worker": "src/background/background.js"
+  },
+  "action": {
+    "default_title": "ClearBlock",
+    "default_popup": "src/popup/popup.html",
+    "default_icon": {
+      "16": "assets/icons/icon16.png",
+      "48": "assets/icons/icon48.png",
+      "128": "assets/icons/icon128.png"
+    }
+  },
+  "declarative_net_request": {
+    "rule_resources": [
+      { "id": "youtube", "enabled": true, "path": "rules/youtube.json" },
+      { "id": "ads_1", "enabled": true, "path": "rules/ads_1.json" },
+      { "id": "ads_2", "enabled": true, "path": "rules/ads_2.json" },
+      { "id": "ads_3", "enabled": true, "path": "rules/ads_3.json" },
+      { "id": "ads_4", "enabled": false, "path": "rules/ads_4.json" },
+      { "id": "ads_5", "enabled": false, "path": "rules/ads_5.json" },
+      { "id": "ads_6", "enabled": false, "path": "rules/ads_6.json" },
+      { "id": "ads_7", "enabled": false, "path": "rules/ads_7.json" },
+      { "id": "trackers_1", "enabled": false, "path": "rules/trackers_1.json" },
+      { "id": "trackers_2", "enabled": false, "path": "rules/trackers_2.json" },
+      { "id": "trackers_3", "enabled": false, "path": "rules/trackers_3.json" },
+      { "id": "trackers_4", "enabled": false, "path": "rules/trackers_4.json" },
+      { "id": "trackers_5", "enabled": false, "path": "rules/trackers_5.json" },
+      { "id": "trackers_6", "enabled": false, "path": "rules/trackers_6.json" },
+      { "id": "trackers_7", "enabled": false, "path": "rules/trackers_7.json" },
+      { "id": "annoyances_1", "enabled": false, "path": "rules/annoyances_1.json" }
+    ]
+  },
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "css": ["src/content/content.css"],
+      "js": ["src/content/content.js"],
+      "run_at": "document_start",
+      "all_frames": true
+    },
+    {
+      "matches": ["<all_urls>"],
+      "css": ["src/filters/generic-ads.css", "src/filters/generic-annoyances.css"],
+      "js": ["src/content/specific.js"],
+      "run_at": "document_start",
+      "all_frames": false
+    },
+    {
+      "matches": [
+        "*://*.youtube.com/*",
+        "*://*.youtube-nocookie.com/*",
+        "*://youtu.be/*"
+      ],
+      "css": ["src/content/youtube.css"],
+      "js": ["src/content/youtube.js"],
+      "run_at": "document_start",
+      "all_frames": true
+    },
+    {
+      "matches": [
+        "*://*.youtube.com/*",
+        "*://*.youtube-nocookie.com/*"
+      ],
+      "js": ["src/content/youtube-main.js"],
+      "run_at": "document_start",
+      "world": "MAIN",
+      "all_frames": false
+    }
+  ],
+  "options_page": "src/options/options.html",
+  "icons": {
+    "16": "assets/icons/icon16.png",
+    "48": "assets/icons/icon48.png",
+    "128": "assets/icons/icon128.png"
+  }
+}

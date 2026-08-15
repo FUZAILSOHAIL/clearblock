@@ -1,0 +1,98 @@
+[
+  {
+    "id": "ads_1",
+    "path": "rules/ads_1.json",
+    "count": 8000,
+    "group": "ads"
+  },
+  {
+    "id": "ads_2",
+    "path": "rules/ads_2.json",
+    "count": 8000,
+    "group": "ads"
+  },
+  {
+    "id": "ads_3",
+    "path": "rules/ads_3.json",
+    "count": 8000,
+    "group": "ads"
+  },
+  {
+    "id": "ads_4",
+    "path": "rules/ads_4.json",
+    "count": 8000,
+    "group": "ads"
+  },
+  {
+    "id": "ads_5",
+    "path": "rules/ads_5.json",
+    "count": 8000,
+    "group": "ads"
+  },
+  {
+    "id": "ads_6",
+    "path": "rules/ads_6.json",
+    "count": 8000,
+    "group": "ads"
+  },
+  {
+    "id": "ads_7",
+    "path": "rules/ads_7.json",
+    "count": 5901,
+    "group": "ads"
+  },
+  {
+    "id": "trackers_1",
+    "path": "rules/trackers_1.json",
+    "count": 8000,
+    "group": "trackers"
+  },
+  {
+    "id": "trackers_2",
+    "path": "rules/trackers_2.json",
+    "count": 8000,
+    "group": "trackers"
+  },
+  {
+    "id": "trackers_3",
+    "path": "rules/trackers_3.json",
+    "count": 8000,
+    "group": "trackers"
+  },
+  {
+    "id": "trackers_4",
+    "path": "rules/trackers_4.json",
+    "count": 8000,
+    "group": "trackers"
+  },
+  {
+    "id": "trackers_5",
+    "path": "rules/trackers_5.json",
+    "count": 8000,
+    "group": "trackers"
+  },
+  {
+    "id": "trackers_6",
+    "path": "rules/trackers_6.json",
+    "count": 8000,
+    "group": "trackers"
+  },
+  {
+    "id": "trackers_7",
+    "path": "rules/trackers_7.json",
+    "count": 7895,
+    "group": "trackers"
+  },
+  {
+    "id": "annoyances_1",
+    "path": "rules/annoyances_1.json",
+    "count": 4492,
+    "group": "annoyances"
+  },
+  {
+    "id": "youtube",
+    "path": "rules/youtube.json",
+    "count": 19,
+    "group": "youtube"
+  }
+]
