@@ -1,0 +1,63 @@
+name: Release
+
+on:
+  push:
+    tags:
+      - "v*"
+
+permissions:
+  contents: write
+
+jobs:
+  release:
+    name: Build and publish extension zip
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out the tag
+        uses: actions/checkout@v4
+
+      - name: Pack the extension
+        run: |
+          set -euo pipefail
+          version="$(sed -n 's/^  "version": "\([^"]*\)".*/\1/p' manifest.json)"
+          if [ -z "$version" ]; then
+            echo "Could not read version from manifest.json" >&2
+            exit 1
+          fi
+          mkdir -p dist
+          zip -r "dist/clearblock-${version}.zip" \
+            manifest.json \
+            LICENSE \
+            THIRD_PARTY_NOTICES.md \
+            README.md \
+            src \
+            rules \
+            assets \
+            -x "*.DS_Store"
+          test -s "dist/clearblock-${version}.zip"
+          unzip -t "dist/clearblock-${version}.zip"
+          unzip -l "dist/clearblock-${version}.zip" | grep -q "manifest.json"
+
+      - name: Publish the GitHub Release
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          set -euo pipefail
+          version="$(sed -n 's/^  "version": "\([^"]*\)".*/\1/p' manifest.json)"
+          asset="dist/clearblock-${version}.zip"
+          tag="${GITHUB_REF_NAME}"
+          notes=$(cat <<EOF
+          Installable ClearBlock package for Chrome and Edge.
+
+          The \`${tag}\` git tag is the corresponding source. ClearBlock is licensed under GPL-3.0-or-later. Third-party filter lists are credited in THIRD_PARTY_NOTICES.md, which is included in this zip.
+
+          The zip name uses the version field in manifest.json (${version}).
+          EOF
+          )
+          if gh release view "$tag" >/dev/null 2>&1; then
+            gh release upload "$tag" "$asset" --clobber
+          else
+            gh release create "$tag" "$asset" \
+              --title "ClearBlock ${tag}" \
+              --notes "$notes"
+          fi
